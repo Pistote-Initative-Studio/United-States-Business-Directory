@@ -1,0 +1,6 @@
+diff --git a//dev/null b/public/vercel.svg
+index 0000000000000000000000000000000000000000..77053960334e2e34dc584dea8019925c3b4ccca9 100644
+--- a//dev/null
++++ b/public/vercel.svg
+@@ -0,0 +1 @@
++<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000"><path d="m577.3 0 577.4 1000H0z" fill="#fff"/></svg>

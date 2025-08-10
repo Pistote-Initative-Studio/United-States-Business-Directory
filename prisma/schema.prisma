@@ -1,0 +1,60 @@
+diff --git a//dev/null b/prisma/schema.prisma
+index 0000000000000000000000000000000000000000..a9cabeb2e65da643ec93b1e93c0c763b10367cb7 100644
+--- a//dev/null
++++ b/prisma/schema.prisma
+@@ -0,0 +1,55 @@
++datasource db {
++  provider = "postgresql"
++  url      = env("DATABASE_URL")
++}
++
++generator client {
++  provider = "prisma-client-js"
++}
++
++model Business {
++  id          String   @id @default(cuid())
++  name        String
++  ownerName   String?
++  email       String?
++  phone       String?
++  location    String?
++  state       String?
++  industry    String?
++  revenueMin  Int?
++  revenueMax  Int?
++  marginMin   Int?
++  marginMax   Int?
++  notes       String?
++  status      String?
++  createdAt   DateTime @default(now())
++  updatedAt   DateTime @updatedAt
++
++  matches     Match[]
++}
++
++model Buyer {
++  id            String   @id @default(cuid())
++  name          String
++  industries    String[]
++  locations     String[]
++  revenueMin    Int?
++  revenueMax    Int?
++  dealStructure String?
++  contactEmail  String?
++  contactPhone  String?
++  createdAt     DateTime @default(now())
++  updatedAt     DateTime @updatedAt
++
++  matches       Match[]
++}
++
++model Match {
++  id         String   @id @default(cuid())
++  buyer      Buyer    @relation(fields: [buyerId], references: [id])
++  buyerId    String
++  business   Business @relation(fields: [businessId], references: [id])
++  businessId String
++  createdAt  DateTime @default(now())
++}
++
