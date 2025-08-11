@@ -1,19 +1,17 @@
+// tailwind.config.ts
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  // no `content` needed in v4
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      // example customization
       colors: {
         brand: {
-          DEFAULT: "#0ea5e9",
-          dark: "#0369a1",
+          red: "#D7352A", // slightly deep red for the top stripe
         },
       },
     },
   },
   plugins: [],
 };
-
 export default config;
